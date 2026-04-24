@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1EB2A6;
+  --primary-hover: #19968c;
+  --secondary: #6366f1;
+}
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  @apply bg-[#f8fafc] text-slate-900 transition-colors duration-500 overflow-x-hidden;
+}
+
+.dark body {
+  @apply bg-slate-950 text-slate-50;
+}
+
+/* Premium Glassmorphism */
+.glass-panel {
+  @apply backdrop-blur-xl bg-white/70 dark:bg-slate-900/70 border border-white/20 dark:border-white/10;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-[#1EB2A6]/50 transition-colors;
+}
+
+/* Text Selection */
+::selection {
+  @apply bg-[#1EB2A6]/30 text-[#19968c] dark:text-white;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
