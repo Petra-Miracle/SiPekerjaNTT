@@ -5,7 +5,7 @@ import App from './App.jsx'
 import './index.css'
 
 // Set document title from Vite env
-document.title = import.meta.env.VITE_APP_NAME || 'LatSar Hub'
+document.title = import.meta.env.VITE_APP_NAME || 'SI PEKERJA NTT Hub'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
