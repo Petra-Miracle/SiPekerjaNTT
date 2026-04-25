@@ -37,7 +37,7 @@ const ResourceGrid = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-24 space-y-8 max-w-4xl mx-auto">
+        <div className="text-center mb-16 md:mb-24 space-y-6 md:space-y-8 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const ResourceGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight"
+            className="text-3xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight uppercase"
           >
             Akses <span className="text-[#1EB2A6] italic">Data & Dokumentasi</span> Digital
           </motion.h2>
@@ -63,14 +63,14 @@ const ResourceGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto italic"
+            className="text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto italic"
           >
             Digitalisasi administrasi untuk pelayanan yang lebih efisien, responsif, dan terintegrasi di seluruh wilayah Nusa Tenggara Timur.
           </motion.p>
         </div>
 
         {/* 2-Card Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
           {resources.map((item, i) => (
             <motion.div
               key={i}
@@ -80,62 +80,62 @@ const ResourceGrid = () => {
               transition={{ duration: 0.8, delay: item.delay }}
             >
               <Card 
-                className="group relative border-none bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl rounded-[40px] hover:translate-y-[-12px] transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] dark:shadow-none overflow-hidden h-full border border-white/20 dark:border-slate-800/50"
+                className="group relative border-none bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl rounded-[32px] md:rounded-[40px] hover:translate-y-[-12px] transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] dark:shadow-none overflow-hidden h-full border border-white/20 dark:border-slate-800/50"
               >
                 {/* Accent Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
                 
-                <CardHeader className="p-10 pb-6 flex flex-col items-start gap-8 relative z-10">
+                <CardHeader className="p-6 md:p-10 pb-4 md:pb-6 flex flex-col items-start gap-6 md:gap-8 relative z-10">
                   {/* Category Chip */}
                   <div className="flex justify-between w-full items-center">
                     <Chip 
                       variant="flat" 
-                      className="bg-[#1EB2A6]/10 text-[#1EB2A6] font-black text-[9px] uppercase tracking-widest px-4 h-7"
+                      className="bg-[#1EB2A6]/10 text-[#1EB2A6] font-black text-[8px] md:text-[9px] uppercase tracking-widest px-3 md:px-4 h-6 md:h-7"
                     >
                       {item.category}
                     </Chip>
-                    <div className="text-slate-300 dark:text-slate-700 font-black text-4xl opacity-20 group-hover:opacity-40 transition-opacity italic">
+                    <div className="text-slate-300 dark:text-slate-700 font-black text-3xl md:text-4xl opacity-20 group-hover:opacity-40 transition-opacity italic">
                       0{i + 1}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-8 w-full">
+                  <div className="flex items-center gap-6 md:gap-8 w-full">
                     <div 
-                      className="w-20 h-20 rounded-3xl flex items-center justify-center text-white transition-all duration-500 shadow-lg scale-100 group-hover:scale-110 group-hover:rotate-6"
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl flex items-center justify-center text-white transition-all duration-500 shadow-lg scale-100 group-hover:scale-110 group-hover:rotate-6"
                       style={{ backgroundColor: item.accent }}
                     >
-                      {item.icon}
+                      {React.cloneElement(item.icon, { size: 28 })}
                     </div>
                     
-                    <div className="flex-1 space-y-1">
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Format Dokumen</p>
-                      <h4 className="text-sm font-black text-slate-800 dark:text-slate-200">
+                    <div className="flex-1 space-y-0.5 md:space-y-1">
+                      <p className="text-[9px] md:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Format Dokumen</p>
+                      <h4 className="text-xs md:text-sm font-black text-slate-800 dark:text-slate-200">
                         {item.count}
                       </h4>
                     </div>
                   </div>
                 </CardHeader>
                 
-                <CardBody className="px-10 pb-10 pt-0 relative z-10 flex flex-col gap-8">
-                  <h3 className="text-xl md:text-2xl font-black text-slate-800 dark:text-white group-hover:text-[#1EB2A6] transition-colors leading-tight uppercase tracking-tight">
+                <CardBody className="px-6 md:px-10 pb-6 md:pb-10 pt-0 relative z-10 flex flex-col gap-6 md:gap-8">
+                  <h3 className="text-lg md:text-2xl font-black text-slate-800 dark:text-white group-hover:text-[#1EB2A6] transition-colors leading-tight uppercase tracking-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed font-medium">
+                  <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                     {item.desc}
                   </p>
                   
-                  <div className="pt-4 mt-auto">
+                  <div className="pt-2 md:pt-4 mt-auto">
                     <Button
                       as="a"
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full h-16 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-[#1EB2A6] dark:hover:bg-[#1EB2A6] hover:text-white dark:hover:text-white font-black text-xs uppercase tracking-[0.3em] transition-all duration-500 group/btn rounded-2xl shadow-xl shadow-slate-200 dark:shadow-none overflow-hidden relative"
+                      className="w-full h-14 md:h-16 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-[#1EB2A6] dark:hover:bg-[#1EB2A6] hover:text-white dark:hover:text-white font-black text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 group/btn rounded-xl md:rounded-2xl shadow-xl shadow-slate-200 dark:shadow-none overflow-hidden relative"
                     >
-                      <span className="relative z-10 flex items-center justify-center gap-3">
+                      <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3">
                         Klik Untuk Akses
-                        <ExternalLink size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                        <ExternalLink size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                       </span>
                     </Button>
                   </div>
@@ -143,7 +143,7 @@ const ResourceGrid = () => {
 
                 {/* Decorative Elements */}
                 <div 
-                  className="absolute bottom-0 left-0 w-full h-1.5 transition-all duration-700 group-hover:h-3"
+                  className="absolute bottom-0 left-0 w-full h-1 md:h-1.5 transition-all duration-700 group-hover:h-2 md:group-hover:h-3"
                   style={{ backgroundColor: item.accent }}
                 />
               </Card>

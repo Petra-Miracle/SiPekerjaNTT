@@ -84,12 +84,15 @@ const Gallery = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-4 h-[1200px] md:h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-6 h-auto md:h-[800px]">
           {galleryItems.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 1, scale: 1 }}
-              className={`${item.span} group relative overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-800 shadow-xl`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`${item.span === "col-span-2 row-span-2" ? "md:col-span-2 md:row-span-2 h-[400px] md:h-full" : "md:col-span-1 md:row-span-1 h-[250px] md:h-full"} group relative overflow-hidden rounded-[32px] bg-slate-100 dark:bg-slate-800 shadow-xl`}
             >
               <Card isFooterBlurred className="w-full h-full border-none rounded-none bg-transparent">
                 <img

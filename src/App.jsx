@@ -9,14 +9,22 @@ import P3TKSection from "@/Components/P3TKSection";
 import Gallery from "@/Components/Gallery";
 import Footer from "@/Components/Footer";
 import LoadingSpinner from "@/Components/Spinner";
+import NotFound from "@/Components/NotFound";
 
 // UPDATE THIS LINK WITH YOUR GOOGLE DRIVE URL
 const GOOGLE_DRIVE_URL = "https://drive.google.com/drive/folders/1ZXou0vBp52PmdjYtnvjZgUlc_v2epOX7";
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [is404, setIs404] = React.useState(false);
 
   React.useEffect(() => {
+    // Logic for 404 check
+    const path = window.location.pathname;
+    if (path !== "/" && path !== "" && !path.startsWith("/#")) {
+      setIs404(true);
+    }
+
     // Simulate initial loading for premium feel
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -26,6 +34,10 @@ export default function App() {
 
   if (isLoading) {
     return <LoadingSpinner />;
+  }
+
+  if (is404) {
+    return <NotFound />;
   }
 
   return (
@@ -46,7 +58,7 @@ export default function App() {
       >
         {/* Sections with unique IDs for navigation */}
         <div id="home">
-          <HeroSection googleDriveUrl={GOOGLE_DRIVE_URL} />
+          <HeroSection />
         </div>
 
         <div id="p3tk">
