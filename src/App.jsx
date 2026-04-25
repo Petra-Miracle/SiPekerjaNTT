@@ -8,11 +8,26 @@ import ResourceGrid from "@/Components/ResourceGrid";
 import P3TKSection from "@/Components/P3TKSection";
 import Gallery from "@/Components/Gallery";
 import Footer from "@/Components/Footer";
+import LoadingSpinner from "@/Components/Spinner";
 
 // UPDATE THIS LINK WITH YOUR GOOGLE DRIVE URL
-const GOOGLE_DRIVE_URL = "https://drive.google.com/drive/folders/YOUR_ID_HERE";
+const GOOGLE_DRIVE_URL = "https://drive.google.com/drive/folders/1ZXou0vBp52PmdjYtnvjZgUlc_v2epOX7";
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    // Simulate initial loading for premium feel
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="relative min-h-screen bg-[#f8fafc] dark:bg-slate-950 transition-colors duration-700">
       {/* Premium Background Elements */}

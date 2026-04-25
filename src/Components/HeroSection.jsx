@@ -6,7 +6,7 @@ import { ArrowRight, Play } from "lucide-react";
 // Import image agar terbaca oleh Vite/React
 import bgHero from "../Public/img/Hero Section Photo.jpeg";
 
-const HeroSection = () => {
+const HeroSection = ({ googleDriveUrl }) => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image - Diam di tempat (No Parallax) */}
@@ -75,6 +75,10 @@ const HeroSection = () => {
             className="flex flex-wrap gap-6 pt-6"
           >
             <Button 
+              as="a"
+              href={googleDriveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               size="lg" 
               className="bg-[#1EB2A6] text-white font-black text-xs uppercase tracking-widest px-10 h-16 rounded-none flex items-center gap-3 group shadow-xl hover:bg-[#19968c] transition-all"
             >
