@@ -12,7 +12,7 @@ const ResourceGrid = () => {
       desc: "Akses data rekapitulasi tenaga kerja AKAD dalam format digital yang terorganisir.",
       delay: 0,
       gradient: "from-teal-500/10 to-transparent",
-      link: import.meta.env.VITE_REKAPITULASI_URL || "#"
+      link: import.meta.env.VITE_REKAPITULASI_URL || "https://docs.google.com/spreadsheets/d/1Vl1Wk5m1KjRRV_aWLAk_4C7QWUOV8xSe/edit?gid=473348956#gid=473348956"
     },
     {
       title: "DOKUMEN TENAGA KERJA ANTAR KERJA ANTAR DAERAH (AKAD)",
@@ -21,7 +21,7 @@ const ResourceGrid = () => {
       desc: "Pusat penyimpanan dokumen administrasi tenaga kerja AKAD secara sistematis.",
       delay: 0.1,
       gradient: "from-blue-500/10 to-transparent",
-      link: import.meta.env.VITE_DOKUMEN_URL || "#"
+      link: import.meta.env.VITE_DOKUMEN_URL || "https://drive.google.com/drive/folders/1ZXou0vBp52PmdjYtnvjZgUlc_v2epOX7"
     }
   ];
 
@@ -108,6 +108,7 @@ const ResourceGrid = () => {
                     as="a"
                     href={item.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full h-14 bg-slate-100 dark:bg-slate-800 hover:bg-[#1EB2A6] text-slate-600 dark:text-slate-300 hover:text-white font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 group/btn rounded-xl shadow-sm"
                   >
                     Click Here
